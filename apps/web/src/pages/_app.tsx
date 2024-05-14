@@ -2,12 +2,14 @@ import '@pancakeswap/ui/css/reset.css'
 import { ResetCSS, ScrollToTopButtonV2, ToastListener } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import GlobalCheckClaimStatus from 'components/GlobalCheckClaimStatus'
-import { NetworkModal } from 'components/NetworkModal'
-import { FixedSubgraphHealthIndicator } from 'components/SubgraphHealthIndicator/FixedSubgraphHealthIndicator'
-import TransactionsDetailModal from 'components/TransactionDetailModal'
+import PublicFooter from 'components/PublicFooter'
+// import { NetworkModal } from 'components/NetworkModal'
+// import { NetworkModal } from 'components/NetworkModal'
+// import { FixedSubgraphHealthIndicator } from 'components/SubgraphHealthIndicator/FixedSubgraphHealthIndicator'
+// import TransactionsDetailModal from 'components/TransactionDetailModal'
 import { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import React, { Fragment } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
@@ -18,7 +20,7 @@ import Menu from '../components/Menu'
 import Providers from '../Providers'
 import GlobalStyle from '../style/Global'
 
-const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
+// const EasterEgg = dynamic(() => import('components/EasterEgg'), { ssr: false })
 
 // This config is required for number formatting
 BigNumber.config({
@@ -39,16 +41,16 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover TurtSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
+          content="Cheaper and faster than Uniswap? Discover BomeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE."
         />
         <meta name="theme-color" content="#1FC7D4" />
-        <meta name="twitter:image" content="https://turtswap.biz/images/turtfly.jpg" />
+        <meta name="twitter:image" content="https://BomeSwap.biz/images/turtfly.jpg" />
         <meta
           name="twitter:description"
-          content="The most popular AMM on BSC! in TurtSwap."
+          content="The most popular AMM on BSC! in BomeSwap."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🥞 TurtSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
+        <meta name="twitter:title" content="🥞 BomeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)" />
         <title>BomeSwap</title>
       </Head>
       <Providers store={store}>
@@ -59,10 +61,6 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
           <PersistGate loading={null} persistor={persistor}>
             <Updaters />
             <App {...props} />
-            <div style={{
-              height: '100vh',
-              backgroundColor: 'black',
-            }}/>
           </PersistGate>
         </Blocklist>
       </Providers>
@@ -105,14 +103,15 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <ShowMenu>
         <Layout>
           <Component {...pageProps} />
+          {/* <PublicFooter /> */}
         </Layout>
       </ShowMenu>
-      <EasterEgg iterations={2} />
+      {/* <EasterEgg iterations={2} />
       <ToastListener />
       <FixedSubgraphHealthIndicator />
       <NetworkModal pageSupportedChains={Component.chains} />
       <TransactionsDetailModal />
-      {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
+      {isShowScrollToTopButton && <ScrollToTopButtonV2 />} */}
     </ProductionErrorBoundary>
   )
 }
